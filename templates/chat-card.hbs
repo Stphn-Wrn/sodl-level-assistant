@@ -1,0 +1,26 @@
+<div class="sodl-level-up-card">
+  <p class="sodl-level-up-card-text"><i class="fas fa-arrow-up-right-dots"></i> {{actor.name}} {{reached}}</p>
+  <ul>
+    {{#if path}}
+    <li><strong>{{localize "SODLLEVELUP.Chat.Path"}} :</strong> {{{path.link}}}</li>
+    {{/if}}
+    {{#if characteristics.length}}
+    <li><strong>{{localize "SODLLEVELUP.Chat.Characteristics"}} :</strong> {{#each characteristics}}{{label}} +{{value}}{{#unless @last}}, {{/unless}}{{/each}}</li>
+    {{/if}}
+    {{#if attributes.length}}
+    <li><strong>{{localize "SODLLEVELUP.Chat.Attributes"}} :</strong> {{#each attributes}}{{label}} {{from}} → {{to}}{{#unless @last}}, {{/unless}}{{/each}}</li>
+    {{/if}}
+    {{#if items.length}}
+    <li><strong>{{localize "SODLLEVELUP.Chat.Gained"}} :</strong> {{#each items}}{{{link}}}{{#unless @last}}, {{/unless}}{{/each}}</li>
+    {{/if}}
+    {{#if traditions}}
+    <li><strong>{{localize "SODLLEVELUP.Chat.Traditions"}} :</strong> {{traditions}}</li>
+    {{/if}}
+    {{#if corruption}}
+    <li class="sodl-level-up-card-dark"><strong>{{corruption.label}}</strong>{{#if corruption.rolls}} (d6 : {{corruption.rolls}}){{/if}}</li>
+    {{/if}}
+    {{#each reminders}}
+    <li><strong>{{../toDoLabel}} :</strong> {{text}}</li>
+    {{/each}}
+  </ul>
+</div>

@@ -1,0 +1,164 @@
+{
+  "SODLLEVELUP": {
+    "Button": "Level up",
+    "WindowTitle": "Level up",
+    "MaxLevel": "This character is already level 10.",
+    "NothingToChoose": "Nothing to choose at this level: just confirm.",
+    "ChoosePath": "Choose your {type}",
+    "WorldItems": "World items",
+    "Granted": "Gained",
+    "ChooseAttributes": "Increase {count} attributes ({chosen}/{count})",
+    "ChooseSet": "Increase one of the two by +{value}:",
+    "ChooseTalent": "Choose a talent",
+    "ChooseSpell": "Choose a spell",
+    "Owned": "already known",
+    "ToDo": "Handle yourself",
+    "LevelUp": "Go to level {to}",
+    "Done": "{name} reaches level {to}.",
+    "PathTypes": {
+      "novice": "novice path",
+      "expert": "expert path",
+      "master": "master path",
+      "legendary": "legendary path"
+    },
+    "Attributes": {
+      "strength": "Strength",
+      "agility": "Agility",
+      "intellect": "Intellect",
+      "will": "Will"
+    },
+    "Characteristics": {
+      "health": "Health",
+      "healingRate": "Healing rate",
+      "defense": "Defense",
+      "perception": "Perception",
+      "speed": "Speed",
+      "power": "Power"
+    },
+    "Reminders": {
+      "languages": "Languages and professions",
+      "magic": "Magic",
+      "options": "Options"
+    },
+    "Errors": {
+      "MissingItem": "Not found in the compendiums: {name}. Add it by hand.",
+      "Failed": "Level up failed: {error}"
+    },
+    "Level": "Level",
+    "FilterPaths": "Search a path…",
+    "ItemTypes": {
+      "path": "Path",
+      "ancestry": "Ancestry"
+    },
+    "Missing": {
+      "Path": "Choose your {type}",
+      "Attribute": "Choose 1 more attribute",
+      "Attributes": "Choose {count} more attributes",
+      "Sets": "Choose one attribute in each pair",
+      "Talent": "Choose a talent",
+      "Spell": "Choose a spell",
+      "Magic": "Complete your magic choices"
+    },
+    "Chat": {
+      "Reached": "reaches level {to}",
+      "Path": "New path",
+      "Characteristics": "Characteristics",
+      "Attributes": "Attributes",
+      "Gained": "Gained",
+      "ToDo": "Still to do on the sheet",
+      "Corruption": "Dark magic: +{value} Corruption",
+      "Traditions": "Traditions discovered"
+    },
+    "Magic": {
+      "Title": "Magic",
+      "Power": "Power after this level: {power}",
+      "Restriction": "The path's traditions: {traditions}",
+      "Religious": "Choose a tradition tied to the character's religion.",
+      "PickTradition": "— Choose a tradition —",
+      "PickTraditionFirst": "Choose a tradition first.",
+      "NoSpell": "No spell available: discover a tradition first.",
+      "Rank": "Rank {rank}",
+      "Dark": "Dark magic",
+      "Slot": {
+        "discover": "Discovery {number}",
+        "choose": "Choice {number}",
+        "learn": "Spell {number}"
+      },
+      "Modes": {
+        "discover": "Discover a tradition",
+        "learn": "Learn a spell"
+      },
+      "Groups": {
+        "intellect": "Intellect traditions",
+        "will": "Will traditions",
+        "other": "Other traditions"
+      },
+      "DarkLegend": "* Dark magic: +1 Corruption for discovering the tradition, a d6 per spell learned."
+    },
+    "TargetHint": "Level aimed for: the assistant goes level after level until it is reached.",
+    "Remaining": "{count} more level(s) after this one",
+    "Settings": {
+      "Legendary": {
+        "Name": "Legendary levels (11 to 20)",
+        "Hint": "Allows going past level 10 with a legendary path, such as the Paragon from Occult Philosophy."
+      }
+    },
+    "Possession": {
+      "RollFlavor": "Corruption possession ({spell})",
+      "Title": "Corruption possession: {name}",
+      "Rolls": "Secret d6: {rolls} · Corruption: {corruption}",
+      "Possessed": "A demon takes possession of {name}.",
+      "Safe": "No demon takes possession of {name}.",
+      "Apply": "Apply the possession",
+      "Applied": "{name} is possessed.",
+      "Already": "{name} is already possessed.",
+      "EffectName": "Possessed",
+      "EffectDescription": "<p><strong>Corruption possession</strong> (Demonology). While possessed, each point of Corruption gained in play grants 1 boon on attack rolls and challenge rolls until you finish your next rest. Whenever you go mad, you gain 1 Corruption and are compelled by the demon instead of suffering the normal effects of madness; at the end of each round, roll 1d6: on a 6, the madness ends.</p>"
+    },
+    "Traditions": {
+      "Air": "Air",
+      "Alchemy": "Alchemy",
+      "Alteration": "Alteration",
+      "Arcana": "Arcana",
+      "Battle": "Battle",
+      "Blood": "Blood",
+      "Celestial": "Celestial",
+      "Chaos": "Chaos",
+      "Conjuration": "Conjuration",
+      "Curse": "Curse",
+      "Death": "Death",
+      "Demonology": "Demonology",
+      "Destruction": "Destruction",
+      "Divination": "Divination",
+      "Earth": "Earth",
+      "Enchantment": "Enchantment",
+      "Fey": "Fey",
+      "Fire": "Fire",
+      "Forbidden": "Forbidden",
+      "Illusion": "Illusion",
+      "Invocation": "Invocation",
+      "Life": "Life",
+      "Madness": "Madness",
+      "Metal": "Metal",
+      "Nature": "Nature",
+      "Necromancy": "Necromancy",
+      "Order": "Order",
+      "Primal": "Primal",
+      "Protection": "Protection",
+      "Rune": "Rune",
+      "Shadow": "Shadow",
+      "Song": "Song",
+      "Soul": "Soul",
+      "Spiritualism": "Spiritualism",
+      "Storm": "Storm",
+      "Technomancy": "Technomancy",
+      "Telekinesis": "Telekinesis",
+      "Telepathy": "Telepathy",
+      "Teleportation": "Teleportation",
+      "Theurgy": "Theurgy",
+      "Time": "Time",
+      "Transformation": "Transformation",
+      "Water": "Water"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "group": "sodl",
+  "platform": "foundry",
+  "icon": "fa-arrow-up-right-dots",
+  "order": 45,
+  "text": {
+    "fr": {
+      "title": "Montée de niveau",
+      "summary": "Un assistant pour passer au niveau suivant, sans rien oublier.",
+      "features": [
+        "Choix de la voie de novice, d'expert ou de maître dans tous les compendiums",
+        "Attributs, talents et sorts du niveau choisis dans une seule fenêtre",
+        "Talents acquis d'office enfin ajoutés (Déterminé au niveau 4 de l'humain…)",
+        "Résumé dans le chat et rappel des choix à faire soi-même (langues, magie)"
+      ]
+    },
+    "en": {
+      "title": "Level Up",
+      "summary": "An assistant to reach the next level without forgetting anything.",
+      "features": [
+        "Novice, expert or master path picked from every compendium",
+        "The level's attributes, talents and spells chosen in one window",
+        "Talents granted outright finally added (Determined at human level 4…)",
+        "Summary in the chat and a reminder of the choices left to make (languages, magic)"
+      ]
+    }
+  }
+}

@@ -1,0 +1,585 @@
+/* -------- Montée de niveau, même habillage que le générateur de PNJ et le lecteur YouTube synchronisé -------- */
+.sodl-level-up {
+  --lvlup-bg: rgba(20, 20, 23, 0.94);
+  --lvlup-surface: rgba(255, 255, 255, 0.04);
+  --lvlup-hover: rgba(255, 255, 255, 0.07);
+  --lvlup-border: rgba(255, 255, 255, 0.08);
+  --lvlup-field: rgba(0, 0, 0, 0.3);
+  --lvlup-text: #dcdcdc;
+  --lvlup-muted: #8b8b90;
+  --lvlup-accent: #c9544f;
+  --lvlup-accent-soft: rgba(201, 84, 79, 0.14);
+  --lvlup-title: #e0c9a6;
+  --lvlup-done: #6fbf73;
+
+  color: var(--lvlup-text);
+  font-size: 13px;
+  background: var(--lvlup-bg);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.sodl-level-up .window-header {
+  height: 34px;
+  padding: 0 6px 0 12px;
+  color: var(--lvlup-title);
+  background: transparent;
+  border: none;
+}
+
+.sodl-level-up .window-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.sodl-level-up .window-header .window-icon {
+  display: none;
+}
+
+.sodl-level-up .window-title::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lvlup-accent);
+}
+
+.sodl-level-up .window-header button {
+  color: var(--lvlup-muted);
+}
+
+.sodl-level-up .window-header button:hover {
+  color: var(--lvlup-text);
+}
+
+.sodl-level-up .window-content {
+  padding: 0;
+  color: var(--lvlup-text);
+  background: transparent;
+}
+
+.lvlup {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: var(--font-body, inherit);
+}
+
+.lvlup img {
+  border: none;
+}
+
+/* Header: who, and from which level to which */
+
+.lvlup-header,
+.lvlup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 10px 8px;
+}
+
+.lvlup-actor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-weight: 600;
+  color: var(--lvlup-title);
+}
+
+.lvlup-actor img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lvlup-levels {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--lvlup-muted);
+}
+
+.lvlup-level {
+  padding: 2px 10px;
+  font-size: 12px;
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 999px;
+}
+
+.lvlup-level.is-next {
+  color: var(--lvlup-title);
+  background: var(--lvlup-accent-soft);
+  border-color: rgba(201, 84, 79, 0.45);
+}
+
+/* The level aimed for: the assistant goes level after level until it is reached. */
+.lvlup-target {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+.lvlup .lvlup-target select {
+  width: auto;
+  height: 24px;
+  padding: 0 6px;
+  font-size: 12px;
+  color: var(--lvlup-text);
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 999px;
+}
+
+.lvlup .lvlup-target select option {
+  background: #1d1d21;
+}
+
+/* Body: one section per path, ancestry or choice */
+
+.lvlup-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 8px 8px;
+  border-top: 1px solid var(--lvlup-border);
+}
+
+.lvlup-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0 6px;
+  padding: 0 0 0 4px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lvlup-muted);
+  border: none;
+}
+
+.lvlup-section h3 img {
+  width: 16px;
+  height: 16px;
+}
+
+.lvlup-done {
+  color: var(--lvlup-done);
+}
+
+.lvlup-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 10px 10px;
+  background: var(--lvlup-surface);
+  border-radius: 8px;
+}
+
+.lvlup-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lvlup-label {
+  padding-left: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lvlup-title);
+}
+
+.lvlup-hint {
+  margin: 0;
+  padding-left: 2px;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--lvlup-muted);
+}
+
+/* Fields */
+
+.lvlup .lvlup-input {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--lvlup-text);
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.lvlup select.lvlup-input option {
+  color: var(--lvlup-text);
+  background: #1d1d21;
+}
+
+.lvlup .lvlup-input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: rgba(201, 84, 79, 0.6);
+}
+
+/* The native radios and checkboxes are hidden: the whole row or tile is the control. */
+.lvlup input[type="radio"],
+.lvlup input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Gains */
+
+.lvlup-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.lvlup-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 10px;
+  font-size: 12px;
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 999px;
+}
+
+.lvlup-chip img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Attributes: tiles like the NPC generator's stat block */
+
+.lvlup-numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 6px;
+}
+
+.lvlup-number {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 5px 4px 4px;
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.lvlup-number:hover {
+  background: var(--lvlup-hover);
+}
+
+.lvlup-number span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lvlup-muted);
+}
+
+.lvlup-number strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.lvlup-number.is-selected {
+  background: var(--lvlup-accent-soft);
+  border-color: rgba(201, 84, 79, 0.6);
+}
+
+.lvlup-number.is-selected span {
+  color: var(--lvlup-title);
+}
+
+.lvlup-number:has(input:disabled) {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Lists of paths, talents and spells: one row each */
+
+.lvlup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lvlup-paths {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.lvlup-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.lvlup-row[hidden] {
+  display: none;
+}
+
+.lvlup-row:hover {
+  background: var(--lvlup-hover);
+}
+
+.lvlup-row img {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.lvlup-row-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lvlup-row-meta {
+  flex: 0 0 auto;
+  font-size: 11px;
+  color: var(--lvlup-muted);
+}
+
+.lvlup-row.is-selected {
+  color: var(--lvlup-title);
+  background: var(--lvlup-accent-soft);
+  border-color: rgba(201, 84, 79, 0.45);
+}
+
+.lvlup-row.is-owned {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.lvlup-description {
+  max-height: 140px;
+  overflow-y: auto;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--lvlup-muted);
+  background: var(--lvlup-field);
+  border-radius: 8px;
+}
+
+.lvlup-description p {
+  margin: 0 0 4px;
+}
+
+/* Magic: one slot per discovery, choice or spell to learn */
+
+.lvlup-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 8px 8px;
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 8px;
+}
+
+.lvlup-slot-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lvlup-slot-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* The NPC generator's segmented control */
+.lvlup-segments {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--lvlup-field);
+  border: 1px solid var(--lvlup-border);
+  border-radius: 999px;
+}
+
+.lvlup-segments label {
+  position: relative;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--lvlup-muted);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.lvlup-segments label:hover {
+  color: var(--lvlup-text);
+}
+
+.lvlup-segments label.is-active {
+  color: var(--lvlup-title);
+  background: var(--lvlup-accent-soft);
+}
+
+/* Spells to learn, one folding panel per tradition */
+.lvlup-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lvlup-group {
+  border: 1px solid var(--lvlup-border);
+  border-radius: 8px;
+}
+
+.lvlup-group summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.lvlup-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.lvlup-group summary::before {
+  content: "\f054";
+  font-family: var(--font-awesome, "Font Awesome 6 Pro");
+  font-weight: 900;
+  font-size: 10px;
+  color: var(--lvlup-muted);
+  transition: transform 0.15s;
+}
+
+.lvlup-group[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.lvlup-group summary:hover {
+  background: var(--lvlup-hover);
+  border-radius: 8px;
+}
+
+.lvlup-group-name {
+  flex: 1;
+}
+
+.lvlup-group .lvlup-list {
+  padding: 0 4px 4px;
+}
+
+.lvlup select.lvlup-input optgroup {
+  color: var(--lvlup-title);
+  background: #1d1d21;
+}
+
+.lvlup-dark {
+  color: var(--lvlup-accent);
+  font-weight: 600;
+}
+
+.lvlup-todo {
+  margin: 0;
+  padding-left: 2px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* Footer: what is missing, and the button */
+
+.lvlup-footer {
+  padding: 8px 10px;
+  border-top: 1px solid var(--lvlup-border);
+}
+
+.lvlup-footer .lvlup-hint {
+  flex: 1;
+  min-width: 0;
+}
+
+.lvlup .lvlup-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  width: auto;
+  height: 30px;
+  margin: 0;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--lvlup-accent);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.lvlup .lvlup-primary:hover {
+  filter: brightness(1.12);
+}
+
+.lvlup .lvlup-primary:disabled {
+  opacity: 0.45;
+  cursor: default;
+  filter: none;
+}
+
+/* Chat card: like the trade module's, on the chat's own background */
+
+.sodl-level-up-card .sodl-level-up-card-text {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.sodl-level-up-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.sodl-level-up-card li {
+  margin: 2px 0;
+}
+
+.sodl-level-up-card .sodl-level-up-card-dark {
+  color: #a33;
+}

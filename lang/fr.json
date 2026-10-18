@@ -1,0 +1,164 @@
+{
+  "SODLLEVELUP": {
+    "Button": "Monter de niveau",
+    "WindowTitle": "Montée de niveau",
+    "MaxLevel": "Ce personnage est déjà au niveau 10.",
+    "NothingToChoose": "Rien à choisir à ce niveau : il suffit de valider.",
+    "ChoosePath": "Choisissez votre {type}",
+    "WorldItems": "Objets du monde",
+    "Granted": "Acquis",
+    "ChooseAttributes": "Augmentez {count} attributs ({chosen}/{count})",
+    "ChooseSet": "Augmentez de +{value} l'un des deux :",
+    "ChooseTalent": "Choisissez un talent",
+    "ChooseSpell": "Choisissez un sort",
+    "Owned": "déjà acquis",
+    "ToDo": "À faire vous-même",
+    "LevelUp": "Passer au niveau {to}",
+    "Done": "{name} passe au niveau {to}.",
+    "PathTypes": {
+      "novice": "voie de novice",
+      "expert": "voie d'expert",
+      "master": "voie de maître",
+      "legendary": "voie légendaire"
+    },
+    "Attributes": {
+      "strength": "Force",
+      "agility": "Agilité",
+      "intellect": "Intellect",
+      "will": "Volonté"
+    },
+    "Characteristics": {
+      "health": "Santé",
+      "healingRate": "Taux de guérison",
+      "defense": "Défense",
+      "perception": "Perception",
+      "speed": "Vitesse",
+      "power": "Pouvoir"
+    },
+    "Reminders": {
+      "languages": "Langues et professions",
+      "magic": "Magie",
+      "options": "Options"
+    },
+    "Errors": {
+      "MissingItem": "Introuvable dans les compendiums : {name}. Ajoutez-le à la main.",
+      "Failed": "La montée de niveau a échoué : {error}"
+    },
+    "Level": "Niveau",
+    "FilterPaths": "Rechercher une voie…",
+    "ItemTypes": {
+      "path": "Voie",
+      "ancestry": "Ascendance"
+    },
+    "Missing": {
+      "Path": "Choisissez votre {type}",
+      "Attribute": "Choisissez encore 1 attribut",
+      "Attributes": "Choisissez encore {count} attributs",
+      "Sets": "Choisissez un attribut dans chaque paire",
+      "Talent": "Choisissez un talent",
+      "Spell": "Choisissez un sort",
+      "Magic": "Complétez vos choix de magie"
+    },
+    "Chat": {
+      "Reached": "atteint le niveau {to}",
+      "Path": "Nouvelle voie",
+      "Characteristics": "Caractéristiques",
+      "Attributes": "Attributs",
+      "Gained": "Gagné",
+      "ToDo": "Reste à faire sur la fiche",
+      "Corruption": "Magie noire : +{value} Corruption",
+      "Traditions": "Traditions découvertes"
+    },
+    "Magic": {
+      "Title": "Magie",
+      "Power": "Puissance après ce niveau : {power}",
+      "Restriction": "Traditions de la voie : {traditions}",
+      "Religious": "Choisissez une tradition liée à la religion du personnage.",
+      "PickTradition": "— Choisir une tradition —",
+      "PickTraditionFirst": "Choisissez d'abord une tradition.",
+      "NoSpell": "Aucun sort disponible : découvrez d'abord une tradition.",
+      "Rank": "Rang {rank}",
+      "Dark": "Magie noire",
+      "Slot": {
+        "discover": "Découverte {number}",
+        "choose": "Choix {number}",
+        "learn": "Sort {number}"
+      },
+      "Modes": {
+        "discover": "Découvrir une tradition",
+        "learn": "Apprendre un sort"
+      },
+      "Groups": {
+        "intellect": "Traditions d'Intellect",
+        "will": "Traditions de Volonté",
+        "other": "Autres traditions"
+      },
+      "DarkLegend": "* Magie noire : +1 Corruption en découvrant la tradition, un d6 par sort appris."
+    },
+    "Traditions": {
+      "Air": "Air",
+      "Alteration": "Altération",
+      "Arcana": "Arcanique",
+      "Battle": "Combat",
+      "Celestial": "Céleste",
+      "Chaos": "Chaos",
+      "Conjuration": "Invocation",
+      "Curse": "Malédiction",
+      "Destruction": "Destruction",
+      "Divination": "Divination",
+      "Earth": "Terre",
+      "Enchantment": "Enchantement",
+      "Fire": "Feu",
+      "Forbidden": "Interdit",
+      "Illusion": "Illusion",
+      "Life": "Vie",
+      "Nature": "Nature",
+      "Necromancy": "Nécromancie",
+      "Primal": "Primordiale",
+      "Protection": "Protection",
+      "Rune": "Runique",
+      "Shadow": "Ombre",
+      "Song": "Chant",
+      "Storm": "Tempête",
+      "Technomancy": "Technomancie",
+      "Telekinesis": "Télékinésie",
+      "Telepathy": "Télépathie",
+      "Teleportation": "Téléportation",
+      "Theurgy": "Théurgie",
+      "Time": "Temps",
+      "Transformation": "Transformation",
+      "Water": "Eau",
+      "Alchemy": "Alchimie",
+      "Blood": "Sang",
+      "Death": "Mort",
+      "Demonology": "Démonologie",
+      "Fey": "Féerie",
+      "Invocation": "Convocation",
+      "Madness": "Démence",
+      "Metal": "Métal",
+      "Order": "Ordre",
+      "Soul": "Âme",
+      "Spiritualism": "Spiritualisme"
+    },
+    "TargetHint": "Niveau visé : l'assistant enchaîne les niveaux un par un jusqu'à celui-ci.",
+    "Remaining": "Encore {count} niveau(x) après celui-ci",
+    "Settings": {
+      "Legendary": {
+        "Name": "Niveaux légendaires (11 à 20)",
+        "Hint": "Permet de dépasser le niveau 10 avec une voie légendaire, comme le Parangon de Philosophie occulte."
+      }
+    },
+    "Possession": {
+      "RollFlavor": "Possession de corruption ({spell})",
+      "Title": "Possession de corruption : {name}",
+      "Rolls": "d6 secret : {rolls} · Corruption : {corruption}",
+      "Possessed": "Un démon prend possession de {name}.",
+      "Safe": "Aucun démon ne prend possession de {name}.",
+      "Apply": "Appliquer la possession",
+      "Applied": "{name} est possédé.",
+      "Already": "{name} est déjà possédé.",
+      "EffectName": "Possédé",
+      "EffectDescription": "<p><strong>Possession de corruption</strong> (Démonologie). Tant que vous êtes possédé, chaque point de Corruption gagné en cours de jeu vous accorde 1 avantage à vos jets d'attaque et à vos tests jusqu'à la fin de votre prochaine période de repos. Chaque fois que vous devenez fou, vous gagnez 1 Corruption, puis vous êtes contraint par le démon au lieu de subir les effets normaux de la Démence ; à la fin de chaque round, lancez 1d6 : sur un 6, la Démence prend fin.</p>"
+    }
+  }
+}

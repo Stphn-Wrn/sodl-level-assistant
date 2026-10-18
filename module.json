@@ -1,0 +1,49 @@
+{
+  "id": "sodl-level-up",
+  "title": "L'Ombre du Seigneur Démon - Montée de niveau",
+  "description": "Un assistant pour passer au niveau suivant : choix de la voie d'expert ou de maître, des attributs, des talents et des sorts du niveau, appliqués à la fiche comme le fait le système.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "demonlord",
+        "type": "system",
+        "compatibility": {
+          "minimum": "6.1.0",
+          "verified": "6.1.0"
+        }
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Courbette"
+    }
+  ],
+  "url": "https://github.com/Stphn-Wrn/sodl-level-up",
+  "manifest": "https://raw.githubusercontent.com/Stphn-Wrn/sodl-level-up/main/module.json",
+  "download": "https://github.com/Stphn-Wrn/sodl-level-up/releases/download/v0.1.0/sodl-level-up.zip",
+  "license": "MIT",
+  "esmodules": [
+    "src/main.js"
+  ],
+  "styles": [
+    "styles/level-up.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

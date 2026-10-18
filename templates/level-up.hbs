@@ -1,0 +1,227 @@
+<div class="lvlup">
+  {{#if maxed}}
+  <div class="lvlup-body">
+    <p class="lvlup-hint">{{localize "SODLLEVELUP.MaxLevel"}}</p>
+  </div>
+  {{else}}
+  <div class="lvlup-header">
+    <span class="lvlup-actor"><img src="{{actorImg}}" alt=""> {{actorName}}</span>
+    <span class="lvlup-levels">
+      <span class="lvlup-level">{{localize "SODLLEVELUP.Level"}} {{from}}</span>
+      <i class="fa-solid fa-arrow-right"></i>
+      <span class="lvlup-level is-next">{{localize "SODLLEVELUP.Level"}} {{to}}</span>
+      <span class="lvlup-target" data-tooltip="{{localize "SODLLEVELUP.TargetHint"}}">
+        <i class="fa-solid fa-flag-checkered"></i>
+        <select name="target">
+          {{#each targets}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>{{/each}}
+        </select>
+      </span>
+    </span>
+  </div>
+
+  <div class="lvlup-body">
+    {{#if pathChoice}}
+    <div class="lvlup-section">
+      <h3>{{pathLabel}}{{#if chosenPath}} <i class="fa-solid fa-check lvlup-done"></i>{{/if}}</h3>
+      <div class="lvlup-panel">
+        <input type="search" name="path-filter" class="lvlup-input" value="{{pathFilter}}" placeholder="{{localize "SODLLEVELUP.FilterPaths"}}">
+        <div class="lvlup-list lvlup-paths">
+          {{#each paths}}
+          <label class="lvlup-row {{#if selected}}is-selected{{/if}}" data-path-name="{{name}}">
+            <input type="radio" name="path" value="{{uuid}}" {{checked selected}}>
+            <img src="{{img}}" alt="">
+            <span class="lvlup-row-name">{{name}}</span>
+            <span class="lvlup-row-meta">{{source}}</span>
+          </label>
+          {{/each}}
+        </div>
+        {{#if chosenPath}}
+        <div class="lvlup-description">{{{chosenPath.description}}}</div>
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#each steps}}
+    <div class="lvlup-section">
+      <h3><img src="{{img}}" alt=""> {{title}} · {{kind}}{{#unless missing.length}} <i class="fa-solid fa-check lvlup-done"></i>{{/unless}}</h3>
+      <div class="lvlup-panel">
+
+        {{#if hasGains}}
+        <div class="lvlup-field">
+          <span class="lvlup-label">{{localize "SODLLEVELUP.Granted"}}</span>
+          <div class="lvlup-chips">
+            {{#each granted.stats}}<span class="lvlup-chip">{{this}}</span>{{/each}}
+            {{#each granted.items}}
+            <span class="lvlup-chip" {{#if description}}data-tooltip="{{description}}"{{/if}}><img src="{{img}}" alt=""> {{name}}</span>
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if attributes.sets}}
+        {{#each attributes.sets}}
+        <div class="lvlup-field">
+          <span class="lvlup-label">{{legend}}</span>
+          <div class="lvlup-numbers">
+            {{#each options}}
+            <label class="lvlup-number {{#if checked}}is-selected{{/if}}">
+              <input type="radio" name="{{../../key}}-set-{{../index}}" data-step="{{../../key}}" data-field="set" data-index="{{../index}}" value="{{position}}" {{checked checked}}>
+              <span>{{label}}</span>
+              <strong>{{current}} → {{next}}</strong>
+            </label>
+            {{/each}}
+          </div>
+        </div>
+        {{/each}}
+        {{else if attributes.options}}
+        <div class="lvlup-field">
+          <span class="lvlup-label">{{attributes.legend}}</span>
+          <div class="lvlup-numbers">
+            {{#each attributes.options}}
+            <label class="lvlup-number {{#if checked}}is-selected{{/if}}">
+              <input type="checkbox" data-step="{{../key}}" data-field="attribute" value="{{key}}" {{checked checked}} {{disabled (and ../attributes.full (not checked))}}>
+              <span>{{label}}</span>
+              <strong>{{current}} → {{next}}</strong>
+            </label>
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if talents.options}}
+        <div class="lvlup-field">
+          <span class="lvlup-label">{{localize "SODLLEVELUP.ChooseTalent"}}</span>
+          <div class="lvlup-list">
+            {{#each talents.options}}
+            <label class="lvlup-row {{#if checked}}is-selected{{/if}} {{#if owned}}is-owned{{/if}}" data-tooltip="{{description}}">
+              <input type="radio" name="{{../key}}-talent" data-step="{{../key}}" data-field="talent" value="{{id}}" {{checked checked}} {{disabled owned}}>
+              <img src="{{img}}" alt="">
+              <span class="lvlup-row-name">{{name}}</span>
+              {{#if owned}}<span class="lvlup-row-meta">{{localize "SODLLEVELUP.Owned"}}</span>{{/if}}
+            </label>
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if spells.options}}
+        <div class="lvlup-field">
+          <span class="lvlup-label">{{localize "SODLLEVELUP.ChooseSpell"}}</span>
+          <div class="lvlup-list">
+            {{#each spells.options}}
+            <label class="lvlup-row {{#if checked}}is-selected{{/if}} {{#if owned}}is-owned{{/if}}" data-tooltip="{{description}}">
+              <input type="radio" name="{{../key}}-spell" data-step="{{../key}}" data-field="spell" value="{{id}}" {{checked checked}} {{disabled owned}}>
+              <img src="{{img}}" alt="">
+              <span class="lvlup-row-name">{{name}}</span>
+              {{#if owned}}<span class="lvlup-row-meta">{{localize "SODLLEVELUP.Owned"}}</span>{{/if}}
+            </label>
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if magic}}
+        <div class="lvlup-field">
+          <span class="lvlup-label">{{localize "SODLLEVELUP.Magic.Title"}}</span>
+          <p class="lvlup-hint">
+            {{localize "SODLLEVELUP.Magic.Power" power=magic.power}}{{#if magic.restriction}} · {{localize "SODLLEVELUP.Magic.Restriction" traditions=magic.restriction}}{{/if}}
+            {{#if magic.religious}}<br>{{localize "SODLLEVELUP.Magic.Religious"}}{{/if}}
+            {{#if magic.darkLegend}}<br><span class="lvlup-dark">{{localize "SODLLEVELUP.Magic.DarkLegend"}}</span>{{/if}}
+          </p>
+          {{#each magic.slots}}
+          <div class="lvlup-slot">
+            <div class="lvlup-slot-head">
+              <span class="lvlup-slot-title">{{label}}{{#if complete}} <i class="fa-solid fa-check lvlup-done"></i>{{/if}}</span>
+              {{#if canChoose}}
+              <span class="lvlup-segments">
+                {{#each modes}}
+                <label class="{{#if checked}}is-active{{/if}}">
+                  <input type="radio" name="{{../../key}}-magic-{{../index}}-mode" data-step="{{../../key}}" data-field="magic-mode" data-slot="{{../index}}" value="{{value}}" {{checked checked}}>
+                  {{label}}
+                </label>
+                {{/each}}
+              </span>
+              {{/if}}
+            </div>
+            {{#if discovering}}
+            <select class="lvlup-input" data-step="{{../key}}" data-field="magic-tradition" data-slot="{{index}}">
+              <option value="">{{localize "SODLLEVELUP.Magic.PickTradition"}}</option>
+              {{#each traditionGroups}}
+              <optgroup label="{{label}}">
+                {{#each options}}
+                <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+                {{/each}}
+              </optgroup>
+              {{/each}}
+            </select>
+            {{/if}}
+            {{#if needsTradition}}
+            <p class="lvlup-hint">{{localize "SODLLEVELUP.Magic.PickTraditionFirst"}}</p>
+            {{else if discovering}}
+            {{#if spells.length}}
+            <div class="lvlup-list">
+              {{#each spells}}
+              <label class="lvlup-row {{#if checked}}is-selected{{/if}}" data-tooltip="{{description}}">
+                <input type="radio" name="{{../../key}}-magic-{{../index}}-spell" data-step="{{../../key}}" data-field="magic-spell" data-slot="{{../index}}" value="{{uuid}}" {{checked checked}}>
+                <img src="{{img}}" alt="">
+                <span class="lvlup-row-name">{{name}}</span>
+                <span class="lvlup-row-meta">{{#if dark}}<span class="lvlup-dark">{{localize "SODLLEVELUP.Magic.Dark"}}</span> · {{/if}}{{localize "SODLLEVELUP.Magic.Rank" rank=rank}}</span>
+              </label>
+              {{/each}}
+            </div>
+            {{/if}}
+            {{else if spellGroups.length}}
+            <div class="lvlup-groups">
+              {{#each spellGroups}}
+              <details class="lvlup-group" data-group-key="{{key}}" {{#if open}}open{{/if}}>
+                <summary>
+                  <span class="lvlup-group-name">{{label}}</span>
+                  <span class="lvlup-row-meta">{{count}}</span>
+                </summary>
+                <div class="lvlup-list">
+                  {{#each spells}}
+                  <label class="lvlup-row {{#if checked}}is-selected{{/if}}" data-tooltip="{{description}}">
+                    <input type="radio" name="{{../../../key}}-magic-{{../../index}}-spell" data-step="{{../../../key}}" data-field="magic-spell" data-slot="{{../../index}}" value="{{uuid}}" {{checked checked}}>
+                    <img src="{{img}}" alt="">
+                    <span class="lvlup-row-name">{{name}}</span>
+                    <span class="lvlup-row-meta">{{#if dark}}<span class="lvlup-dark">{{localize "SODLLEVELUP.Magic.Dark"}}</span> · {{/if}}{{localize "SODLLEVELUP.Magic.Rank" rank=rank}}</span>
+                  </label>
+                  {{/each}}
+                </div>
+              </details>
+              {{/each}}
+            </div>
+            {{else if learning}}
+            <p class="lvlup-hint">{{localize "SODLLEVELUP.Magic.NoSpell"}}</p>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if reminders.length}}
+        <div class="lvlup-field">
+          <span class="lvlup-label"><i class="fa-solid fa-pen"></i> {{localize "SODLLEVELUP.ToDo"}}</span>
+          {{#each reminders}}
+          <p class="lvlup-todo"><strong>{{label}}</strong> — {{text}}</p>
+          {{/each}}
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    {{#if nothingToChoose}}
+    <p class="lvlup-hint">{{localize "SODLLEVELUP.NothingToChoose"}}</p>
+    {{/if}}
+  </div>
+
+  <div class="lvlup-footer">
+    <span class="lvlup-hint">{{#if hint}}{{hint}}{{else if remaining}}{{localize "SODLLEVELUP.Remaining" count=remaining}}{{/if}}</span>
+    <button type="button" class="lvlup-primary" data-action="levelUp" {{disabled (not ready)}}>
+      <i class="fa-solid fa-arrow-up-right-dots"></i> {{buttonLabel}}
+    </button>
+  </div>
+  {{/if}}
+</div>
