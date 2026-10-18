@@ -92,7 +92,7 @@ export class LevelUpApp extends HandlebarsApplicationMixin(ApplicationV2) {
   };
 
   constructor(actor, options = {}) {
-    super({ ...options, id: `sodl-level-up-${actor.id}` });
+    super({ ...options, id: `sodl-level-assistant-${actor.id}` });
     this.actor = actor;
     this.selections = {};
     this.chosenPath = null;
@@ -335,7 +335,7 @@ export class LevelUpApp extends HandlebarsApplicationMixin(ApplicationV2) {
 }
 
 export function openLevelUp(actor) {
-  const open = foundry.applications.instances.get(`sodl-level-up-${actor.id}`);
+  const open = foundry.applications.instances.get(`sodl-level-assistant-${actor.id}`);
   if (open) {
     open.bringToFront();
     return open;

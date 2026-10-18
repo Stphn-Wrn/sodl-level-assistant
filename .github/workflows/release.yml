@@ -1,4 +1,4 @@
-name: Release SODL Level Up
+name: Release SODL Level Assistant
 
 on:
   workflow_dispatch:
@@ -63,7 +63,7 @@ jobs:
         run: |
           NEW_VERSION=${{ steps.bump_version.outputs.new_version }}
           REPO=${{ github.repository }}
-          ZIP_URL="https://github.com/${REPO}/releases/download/v${NEW_VERSION}/sodl-level-up.zip"
+          ZIP_URL="https://github.com/${REPO}/releases/download/v${NEW_VERSION}/sodl-level-assistant.zip"
           jq ".version = \"${NEW_VERSION}\" | .download = \"${ZIP_URL}\"" module.json > tmp.json && mv tmp.json module.json
 
       - name: Commit and push version update
@@ -74,14 +74,14 @@ jobs:
 
       - name: Create ZIP archive
         run: |
-          zip -r sodl-level-up.zip . -x "*.git*" ".github/workflows/*" "node_modules/*" "tests/*" "package.json" ".gitignore" ".DS_Store"
+          zip -r sodl-level-assistant.zip . -x "*.git*" ".github/workflows/*" "node_modules/*" "tests/*" "package.json" ".gitignore" ".DS_Store"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.bump_version.outputs.new_version }}
           name: Release v${{ steps.bump_version.outputs.new_version }}
-          files: sodl-level-up.zip
+          files: sodl-level-assistant.zip
           draft: false
           prerelease: false
         env:

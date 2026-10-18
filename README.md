@@ -42,7 +42,7 @@ Names and descriptions are read from the compendiums, so they follow the transla
 ## For macros and other modules
 
 ```js
-game.modules.get("sodl-level-up").api.open(actor);
+game.modules.get("sodl-level-assistant").api.open(actor);
 ```
 
 ## Limits
@@ -57,7 +57,7 @@ game.modules.get("sodl-level-up").api.open(actor);
 In Foundry: *Add-on Modules → Install Module*, then paste the manifest URL:
 
 ```
-https://raw.githubusercontent.com/Stphn-Wrn/sodl-level-up/main/module.json
+https://raw.githubusercontent.com/Stphn-Wrn/sodl-level-assistant/main/module.json
 ```
 
 ## Development

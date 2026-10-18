@@ -1,6 +1,6 @@
-export const MODULE_ID = "sodl-level-up";
+export const MODULE_ID = "sodl-level-assistant";
 // The id the assistant gives the path picked for this level until it is created on the character.
-export const NEW_PATH_ID = "sodl-level-up-new-path";
+export const NEW_PATH_ID = "sodl-level-assistant-new-path";
 
 export function modulePath(relativePath) {
   return `modules/${MODULE_ID}/${relativePath}`;
