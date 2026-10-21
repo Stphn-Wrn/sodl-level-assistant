@@ -3,11 +3,13 @@ export async function pathsOfType(type) {
   const paths = game.items
     .filter((item) => item.type === "path" && item.system.type === type)
     .map((item) => ({ uuid: item.uuid, name: item.name, img: item.img, source: game.i18n.localize("SODLLEVELUP.WorldItems") }));
+  const uuids = new Set(paths.map((path) => path.uuid));
   for (const pack of game.packs.filter((candidate) => candidate.documentName === "Item")) {
     const index = await pack.getIndex({ fields: ["system.type"] });
     for (const entry of index) {
-      if (entry.type === "path" && entry.system?.type === type) {
+      if (entry.type === "path" && entry.system?.type === type && !uuids.has(entry.uuid)) {
         paths.push({ uuid: entry.uuid, name: entry.name, img: entry.img, source: pack.metadata.label });
+        uuids.add(entry.uuid);
       }
     }
   }
